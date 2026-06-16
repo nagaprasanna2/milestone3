@@ -1,0 +1,194 @@
+Fork:https://github.com/akshu20791/addressbook-cicd-project
+sudo su 
+apt update
+apt install docker.io -y
+docker run -dt -p 8080:8080 jenkins/Jenkins
+docker ps -id and name will come
+docker exec-it <container_id> /bin/bash
+
+cat /var/jenkins_home/secrets/initialAdminPassword
+9 open publicipaddress:8080 in browser
+
+I 10 after that paste the password you get when you run cat /var/..../password command
+
+install plugings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# create a job and select pipeline in configure write the code
+pipeline{
+    agent any
+    stages{
+        stage("first stage:here we checkout the code from github"){
+            steps{
+                git 'https://github.com/akshu20791/addressbook-cicd-project'
+                echo "cloning the code in jenkins workspace"
+            }
+        }
+        stage("compile the code by akshat"){
+            steps{
+                sh 'mvn compile'
+                echo "compiling the project"
+            }
+        }
+        stage("running the test case"){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage("deploy the project"){
+            steps{
+                sh 'sudo cp /var/lib/jenkins/workspace/project-pipeline/target/addressbook.war /home/ubuntu/apache-tomcat-9.0.108/webapps
+            }
+        }
+    }
+}
+  
+//before clicking build now make sure that u install maven
+Docker exec -u 0 -it container_id bash
+apt update
+apt install maven -y
+mvn -v
+//outside container
+apt update
+apt install maven -y
+mvn -v
+//outside container
+apt update
+apt install unzip -y
+https://tomcat.apache.org/download-90.cgi
+wget link
+unzip apache-tomcat-9.0.118.zip
+ls
+cd conf
+ls
+vi server.xml
+//replace connector port 8080  with 9090
+cd ..
+cd bin
+chmod +x *.sh
+./startup.sh
+//if after startup its not updated means apt update
+//we have to install java inside apache-tomcat-9.0.118 not inside bin directory
+apt update
+apt install openjdk-17-jdk  -y
+java -v
+//then check ip address for tomcat is changed or not
+Publicip:9090 //u will see tomcat page
+//in Jenkins dashboard build now if it is success then copy the war file address
+/In jenkins dashbord build now if it is sucess then copy the war file address 
+docker cp container_id:/var/jenkins_home/workspace/pro/target/addressbook.war .cp addressbook.war/home/ubuntu/apache-tomcat-9.0.118/bin
+
+/startup.sh
+
+//now in browser run publicip:9090/addressbook
+
+
+Fork:https://github.com/akshu20791/addressbook-cicd-project
+sudo su 
+apt update
+apt install docker.io -y
+docker run -dt -p 8080:8080 jenkins/Jenkins
+docker ps -id and name will come
+docker exec-it <container_id> /bin/bash
+
+cat /var/jenkins_home/secrets/initialAdminPassword
+open publicipaddress:8080 in browser
+docker ps
+copy id /name
+docker exec -it containername/containerid  /bin/bash
+#replace id or name
+ cat /var/Jenkins_home/secretes/initialAdminPassword
+password will come
+copy and paste it in puclic ip 8080 server
+login
+
+
+
+
+
+
+pipeline{
+    agent any
+    stages{
+        stage("first stage:here we checkout the code from github"){
+            steps{
+                git 'https://github.com/akshu20791/addressbook-cicd-project'
+                echo "clone done"
+            }      
+        }  -----1
+        stage("compile the code by akshat"){
+            steps{
+                sh 'mvn compile'
+            }
+        }----2
+        stage("running the test case"){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage("package the project"){
+            steps{
+                sh 'mvn package'
+            }
+        }-----------3--war file creates here
+        
+        stage("deploy the project"){
+            steps{
+                sh 'sudo cp /var/lib/jenkins/workspace/project-pipeline/target/addressbook.war /home/ubuntu/apache-tomcat-9.0.108/webapps
+            }
+        }
+    }
+}
+
+
+
+https://tomcat.apache.org/download-90.cgi
+copy link wget and paste +enter
+apt install unzip -y
+unzip apache-tomcat-9.0.118.zip
+cd apache-tomcat-9.0.118
+ls
+cd conf
+ls
+here will se server.xml
+vi server.xml
+replace 8080 with 9090 in the connector port
+cd ..
+cd bin
+chmod +x *.sh
+./startup.sh—ur tomcat will run on port 9090
+cd ..
+go to console output if success
+go to webapps
+cd webapps
+pwd
+copy the location
+/home/ubuntu/apache-tomcat-9.0.118/webapps
+Go and configure and add sp
+--will get error here
+visudo
+Jenkins ALL=(ALL:ALL) NOPASSWD: ALL
+Service Jenkins restart
+Relogin from the browser
+Got to job and build now now success
+https://publicipofmachine:9090/addressbook
+
+
+
+
+
